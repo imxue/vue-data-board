@@ -43,6 +43,8 @@ export default {
         this.loading = false
         this.$store.dispatch('Login', resp.data.token).then(() => {
           this.$router.push(this.$route.query.redirect || '/')
+        }, error => {
+          this.loading = false
         })
       })
     },
